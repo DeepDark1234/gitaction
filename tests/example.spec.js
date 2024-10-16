@@ -302,7 +302,7 @@ test('7. แจ้งยืนยันการชำระเงิน', async
   // await page.locator('text=wll.png').click();
 
   const handle = page.locator('input[type="file"]');
-  await handle.setInputFiles("D:/coding/miniproject/wll.png");
+  await handle.setInputFiles("./img.png");
 
   page.once("dialog", (dialog) => {
     console.log(dialog.message());
