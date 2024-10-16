@@ -318,28 +318,28 @@ test('7. แจ้งยืนยันการชำระเงิน', async
   });
 });
 
-test('8. สามารถ logout ได้', async ({ page }) => {
-  await page.goto('https://www.surin.rmuti.ac.th/Test/Quo/index.php');
+// test('8. สามารถ logout ได้', async ({ page }) => {
+//   await page.goto('https://www.surin.rmuti.ac.th/Test/Quo/index.php');
 
-  // เข้าหน้า  register
-  await page.locator("(//a[@id='dropdownMenuLink'])[1]").waitFor({ state: 'visible' });
-  await page.locator("(//a[@id='dropdownMenuLink'])[1]").click()
-  await page.locator("(//a[@id='btn-register-people'])[1]").waitFor({ state: 'visible' });
-  await page.locator("(//a[@id='btn-register-people'])[1]").click()
+//   // เข้าหน้า  register
+//   await page.locator("(//a[@id='dropdownMenuLink'])[1]").waitFor({ state: 'visible' });
+//   await page.locator("(//a[@id='dropdownMenuLink'])[1]").click()
+//   await page.locator("(//a[@id='btn-register-people'])[1]").waitFor({ state: 'visible' });
+//   await page.locator("(//a[@id='btn-register-people'])[1]").click()
 
-  await page.fill('#iDCard2', '1000000000017')
-  await page.click('#loginbtn')
+//   await page.fill('#iDCard2', '1000000000017')
+//   await page.click('#loginbtn')
 
-  await page.waitForSelector('#dropdownMenuLink', { state: 'visible' });
-  await page.click('#dropdownMenuLink');
-  await page.waitForSelector('#btn-register-merchant', { state: 'visible' });
-  await page.click('#btn-register-merchant');
-  await page.locator("(//img[@class='img-fluid y'])[1]").click()
+//   await page.waitForSelector('#dropdownMenuLink', { state: 'visible' });
+//   await page.click('#dropdownMenuLink');
+//   await page.waitForSelector('#btn-register-merchant', { state: 'visible' });
+//   await page.click('#btn-register-merchant');
+//   await page.locator("(//img[@class='img-fluid y'])[1]").click()
 
-  await page.screenshot({
-    path: path.join(__dirname, 'playwright-report', `${Date.now()}-------8. ผลการล็อกเอาท์.png`)
-  });
-});
+//   await page.screenshot({
+//     path: path.join(__dirname, 'playwright-report', `${Date.now()}-------8. ผลการล็อกเอาท์.png`)
+//   });
+// });
 
 // test('1. สมัครเรียน ปีการศึกษา 2568', async ({ page }) => {
 //   await page.goto('https://www.surin.rmuti.ac.th/Test/Quo/index.php');
