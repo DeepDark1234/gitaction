@@ -6,7 +6,7 @@ test.setTimeout(6000000);
 let edu, degree
 
 // วันที่เริ่มต้น (ตั้งค่าเป็นวันที่ที่คุณต้องการเริ่มนับ)
-const startDate = '2010-08-03'; // รูปแบบ YYYY-MM-DD
+const startDate = '2010-07-01'; // รูปแบบ YYYY-MM-DD
 const startingId = '100000000000'; // เลขบัตรประชาชนเริ่มต้น
 
 // คำนวณจำนวนวันที่ผ่านไปตั้งแต่วันที่เริ่มต้น
@@ -318,59 +318,60 @@ test('7. แจ้งยืนยันการชำระเงิน', async
   });
 });
 
-// test('8. สามารถ logout ได้', async ({ page }) => {
-//   await page.goto('https://www.surin.rmuti.ac.th/Test/Quo/index.php');
+test('8. สามารถ logout ได้', async ({ page }) => {
+  await page.goto('https://www.surin.rmuti.ac.th/Test/Quo/index.php');
 
-//   // เข้าหน้า  register
-//   await page.locator("(//a[@id='dropdownMenuLink'])[1]").waitFor({ state: 'visible' });
-//   await page.locator("(//a[@id='dropdownMenuLink'])[1]").click()
-//   await page.locator("(//a[@id='btn-register-people'])[1]").waitFor({ state: 'visible' });
-//   await page.locator("(//a[@id='btn-register-people'])[1]").click()
+  // เข้าหน้า  register
+  await page.locator("(//a[@id='dropdownMenuLink'])[1]").waitFor({ state: 'visible' });
+  await page.locator("(//a[@id='dropdownMenuLink'])[1]").click()
+  await page.locator("(//a[@id='btn-register-people'])[1]").waitFor({ state: 'visible' });
+  await page.locator("(//a[@id='btn-register-people'])[1]").click()
 
-//   await page.fill('#iDCard2', '1000000000017')
-//   await page.click('#loginbtn')
+  await page.fill('#iDCard2', '1000000000017')
+  await page.click('#loginbtn')
 
-//   await page.waitForSelector('#dropdownMenuLink', { state: 'visible' });
-//   await page.click('#dropdownMenuLink');
-//   await page.waitForSelector('#btn-register-merchant', { state: 'visible' });
-//   await page.click('#btn-register-merchant');
-//   await page.locator("(//img[@class='img-fluid y'])[1]").click()
+  await page.waitForSelector('#dropdownMenuLink', { state: 'visible' });
+  await page.click('#dropdownMenuLink');
+  await page.waitForSelector('#btn-register-merchant', { state: 'visible' });
+  await page.click('#btn-register-merchant');
+  await page.waitForTimeout(5000);
+  await page.locator("(//img[@class='img-fluid y'])[1]").click()
 
-//   await page.screenshot({
-//     path: path.join(__dirname, 'playwright-report', `${Date.now()}-------8. ผลการล็อกเอาท์.png`)
-//   });
-// });
+  await page.screenshot({
+    path: path.join(__dirname, 'playwright-report', `${Date.now()}-------8. ผลการล็อกเอาท์.png`)
+  });
+});
 
-// test('1. สมัครเรียน ปีการศึกษา 2568', async ({ page }) => {
-//   await page.goto('https://www.surin.rmuti.ac.th/Test/Quo/index.php');
+test('1. สมัครเรียน ปีการศึกษา 2568', async ({ page }) => {
+  await page.goto('https://www.surin.rmuti.ac.th/Test/Quo/index.php');
 
-//   // ทดสอบสร้างบัญชีทุกสาขา
-//   edu = 'input[type="radio"][id="edu1"][value="1"]'
-//   degree = 'input[type="radio"][id="degree1"][value="1"]'
+  // ทดสอบสร้างบัญชีทุกสาขา
+  edu = 'input[type="radio"][id="edu1"][value="1"]'
+  degree = 'input[type="radio"][id="degree1"][value="1"]'
 
-//   await programcheck(page, uniqueIds[1], edu, degree, '2210111'); // พืชศาสตร์ (ม.6)
-
-
-//   await page.screenshot({
-//     path: path.join(__dirname, 'playwright-report', `${Date.now()}-------1. ผลการสมัครเรียน.png`)
-//   });
-
-// });
-
-// test('2. สมัครเรียน ภาคเรียนที่ 2 ปีการศึกษา 2567', async ({ page }) => {
-//   await page.goto('https://www.surin.rmuti.ac.th/Test/Quo/index.php');
-
-//   // ทดสอบสร้างบัญชีทุกสาขา
-//   edu = 'input[type="radio"][id="edu1"][value="1"]'
-//   degree = 'input[type="radio"][id="degree1"][value="1"]'
-
-//   await programcheck(page, uniqueIds[200], edu, degree, '2210111'); // พืชศาสตร์ (ม.6)
+  await programcheck(page, uniqueIds[1], edu, degree, '2210111'); // พืชศาสตร์ (ม.6)
 
 
-//   await page.screenshot({
-//     path: path.join(__dirname, 'playwright-report', `${Date.now()}-------2. ผลการสมัครเรียน.png`)
-//   });
-// });
+  await page.screenshot({
+    path: path.join(__dirname, 'playwright-report', `${Date.now()}-------1. ผลการสมัครเรียน.png`)
+  });
+
+});
+
+test('2. สมัครเรียน ภาคเรียนที่ 2 ปีการศึกษา 2567', async ({ page }) => {
+  await page.goto('https://www.surin.rmuti.ac.th/Test/Quo/index.php');
+
+  // ทดสอบสร้างบัญชีทุกสาขา
+  edu = 'input[type="radio"][id="edu1"][value="1"]'
+  degree = 'input[type="radio"][id="degree1"][value="1"]'
+
+  await programcheck(page, uniqueIds[200], edu, degree, '2210111'); // พืชศาสตร์ (ม.6)
+
+
+  await page.screenshot({
+    path: path.join(__dirname, 'playwright-report', `${Date.now()}-------2. ผลการสมัครเรียน.png`)
+  });
+});
 
 
 // ฟังก์ชันลงทะเบียนแต่ละสาขา เทอม  2 2567
@@ -392,7 +393,8 @@ async function programcheck2(page, id, edu, degree, program) {
 
   // กรอกข้อมูล
   await page.fill('#reg_fname', 'กรกนก')
-  await page.fill('#reg_sname', 'กนกรก')
+  // await page.fill('#reg_sname', 'กนกรก')
+  await page.locator("(//input[@id='reg_sname'])[1]").fill('กนกวัน')
   await page.fill('#mobile', '0123456789')
   await page.fill('#end_deu', 'วิทคณิต')
   await page.fill('#shool', 'โรงเรียนเกษตรศาสตร์')
@@ -407,8 +409,10 @@ async function programcheck2(page, id, edu, degree, program) {
   await dropdownCheck(page, '#program', program);
   await page.click('#register_submit')
 
+  await page.waitForTimeout(5000);
   // คลิกเพื่ออัพเดทตอนขีด --ui
   await page.locator("(//font[contains(text(),'ประวัติการสมัครเรียน')])[1]").click()
+  // await expect(page.locator("(//font[contains(text(),'ประวัติการสมัครเรียน')])[1]")).toBeVisible()
   // await page.close();
 }
 
@@ -431,7 +435,8 @@ async function programcheck(page, id, edu, degree, program) {
 
   // กรอกข้อมูล
   await page.fill('#reg_fname', 'กรกนก')
-  await page.fill('#reg_sname', 'กนกรก')
+  // await page.fill('#reg_sname', '')
+  await page.locator("(//input[@id='reg_sname'])[1]").fill('กนกวัน')
   await page.fill('#mobile', '0123456789')
   await page.fill('#end_deu', 'วิทคณิต')
   await page.fill('#shool', 'โรงเรียนเกษตรศาสตร์')
@@ -446,8 +451,11 @@ async function programcheck(page, id, edu, degree, program) {
   await dropdownCheck(page, '#program', program);
   await page.click('#register_submit')
 
+  await page.waitForTimeout(5000);
+
   // คลิกเพื่ออัพเดทตอนขีด --ui
   await page.locator("(//font[contains(text(),'ประวัติการสมัครเรียน')])[1]").click()
+  // await expect(page.locator("(//font[contains(text(),'ประวัติการสมัครเรียน')])[1]")).toBeVisible()
   // await page.close();
 }
 
